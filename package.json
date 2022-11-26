@@ -1,5 +1,5 @@
 {
-  "name": "another",
+  "name": "test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,11 +13,12 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.15",
     "@mui/material": "^5.10.15",
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5",
     "next": "13.0.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "yarn": "^1.22.19"
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "8.28.0",
+    "eslint-config-next": "13.0.5"
   }
 }

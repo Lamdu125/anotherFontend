@@ -1,22 +1,34 @@
-import Head from "next/head";
-import Image from "../components/image";
-import Text from "../components/Text";
+import Head from 'next/head'
+import Image from 'next/image'
+import Button from '../components/Button'
+import ProgressMobileStepper from '../components/ProgressMobileStepper'
+import styles from '../styles/Home.module.css'
 
 export default function Home() {
   return (
-    <div>
+    <div style={{backgroundColor:'#EDEDED'}}>
       <Head>
-        <title>Another</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-        />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
+/>
       </Head>
-      <div>
-        <Text content="Con cá trê" />
+
+      <ProgressMobileStepper />
+      <Button
+        textColor={'#000000'}
+        width={'243px'}
+        height={'60px'}
+        borderRadius={'20px'}
+        title={'xac nhan'}
+        fontSize={'20px'}
+        border={'1px solid #000000'}
+        backgroundColor={'#FFFFFF'}
+        hoverBackground={'#000000'}
+        hoverTextColor={'#FFFFFF'}
+      >
+      </Button>
+
+      <Text content="Con cá trê" />
         <Image
           imagePath="/images/apple.png"
           width={200}
@@ -24,7 +36,6 @@ export default function Home() {
           hoverEnabled={false}
           isCircleAround={true}
         />
-      </div>
     </div>
   );
 }
