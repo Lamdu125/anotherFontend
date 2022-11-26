@@ -27,6 +27,15 @@ export default function Home() {
         hoverTextColor={'#FFFFFF'}
       >
       </Button>
+
+      <Text content="Con cá trê" />
+        <Image
+          imagePath="/images/apple.png"
+          width={200}
+          height={200}
+          hoverEnabled={false}
+          isCircleAround={true}
+        />
     </div>
-  )
+  );
 }
