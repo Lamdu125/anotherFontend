@@ -13,14 +13,13 @@ const StyledBox = styled(Box)((props) => ({
   width: props.width,
   height: props.height,
   cursor: "pointer",
-  transition: "all .5s linear",
   "&:hover": props.hoverEnabled
     ? {
         borderRadius: "50%",
         boxShadow: "0px 5px 30px rgba(81, 33, 98, 0.4)",
       }
     : undefined,
-  animation: `${textAnimate(props)} ${props.duration} linear ${props.delay}`,
+  animation: `${textAnimate(props)} ${props.duration || "1s"} linear ${props.delay || "0s"}`,
 }));
 
 const Image = (props) => {
@@ -52,7 +51,7 @@ const Image = (props) => {
           onMouseEnter={handleEnterMouse}
           onMouseLeave={handleLeaveMouse}
         >
-          <NextImage src={circle} alt="#" width={props.width} height={props.height} />
+          <NextImage src={circle} alt="#" width={props.width - 20} height={props.height - 40} />
         </div>
       );
     }
