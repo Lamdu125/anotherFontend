@@ -13,6 +13,7 @@ const StyledBox = styled(Box)((props) => ({
   width: props.width,
   height: props.height,
   cursor: "pointer",
+  transition: "all .5s linear",
   "&:hover": props.hoverEnabled
     ? {
         borderRadius: "50%",
