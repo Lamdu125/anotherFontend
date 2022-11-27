@@ -3,12 +3,12 @@ import { Typography } from "@mui/material";
 import { textAnimate } from "../../styles/globalCSS";
 
 const Content = styled(Typography)((props) => ({
-  fontFamily: props.bold ? 'AvertaBold' : 'Averta',
+  fontFamily: props.bold ? "AvertaBold" : "Averta",
   textAlign: props.textAlign,
   lineHeight: props.lineHeight,
   letterSpacing: props.letterSpacing,
   fontSize: `${props.fontSize}`,
-  animation: `${textAnimate(props)} ${props.duration || '1s'} linear ${props.delay || '0s'}`,
+  animation: `${textAnimate(props)} ${props.duration || "1s"} linear ${props.delay || "0s"}`,
 }));
 
 const Text = (props) => {
