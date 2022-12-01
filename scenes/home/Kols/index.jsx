@@ -1,12 +1,13 @@
 import { Container, Box, styled, Grid, List, ListItem } from '@mui/material'
-import Image from '../../components/image'
-import Text from '../../components/Text'
-import React, { useMemo, useCallback, useState } from 'react';
-import Button from '../../components/Button'
+import Image from '../../../components/image'
+import Text from '../../../components/Text'
+import React, { useMemo, useCallback, useState, useEffect } from 'react';
+import Button from '../../../components/Button'
 import { MobileStepper } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import { Stack } from '@mui/system';
+import styles from './style.module.css'
 
 const listKOLs = [
     {
@@ -41,7 +42,11 @@ const listKOLs = [
     }];
 
 
-const Project = () => {
+const Kols = () => {
+    const [screenWidth, setScreenWidth] = useState(0);
+    useEffect(() => {
+        setScreenWidth(screen.width);
+    }, []);
     const [activeStep, setActiveStep] = useState(0);
     const LIST_KOLS = useMemo(() => {
         return listKOLs.map((item, index) => {
@@ -51,27 +56,31 @@ const Project = () => {
             return <ListItem key={index}>
                 <Box sx={{
                     display: 'flex',
-                    flexDirection: 'row',
+                    justifyContent: "center",
+                    alignItems: 'center',
+                    flexDirection: { xs: 'column', sm: 'row' },
                     marginTop: '5%',
-                    width: "90vw",
+                    width: "80vw",
                 }}>
                     <Image
                         imagePath={item.image}
-                        width={350}
-                        height={350}
+                        width={screenWidth * 0.3}
+                        height={0.3 * screenWidth}
                         hoverEnabled={false}
                         isCircleAround={true}
                         startY={'10%'}
                         endY={'0%'}
                     />
                     <Box sx={{
+                        maxWidth: '45vw',
                         marginTop: '2%',
                         marginLeft: '5%'
                     }}>
                         <Text
                             content={item.title}
-                            fontSize={'32px'}
-                            startY={'50%'}
+                            fontSize={{ xs: '20px', sm: '32px' }}
+                            textAlign={{ xs: 'center', sm: 'justify' }}
+                            startY={'100%'}
                             endY={'0%'}
                             duration={'0.5s'}
                             bold
@@ -79,14 +88,16 @@ const Project = () => {
                         <br />
                         <Text
                             content={item.content}
-                            fontSize={'20px'}
-                            startY={'10%'}
+                            fontSize={{ xs: '12px', sm: '20px' }}
+                            lineHeight={{ xs: '30px', sm: '40px' }}
+                            textAlign={{ xs: 'center', sm: 'justify' }}
+                            startY={'100%'}
                             endY={'0%'} />
                     </Box>
                 </Box>
             </ListItem>
         })
-    }, [activeStep])
+    }, [activeStep, screenWidth])
     const handleNext = useCallback(() => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }, []);
@@ -108,9 +119,9 @@ const Project = () => {
                 <Box>
                     <Text
                         content={'KOLs'}
-                        fontSize={'40px'} />
+                        fontSize={{ sm: '40px', xs: '30px' }} />
                 </Box>
-                <Box sx={{ width: "90vw", overflow: "hidden" }}>
+                <Box sx={{ width: "80vw", overflow: "hidden" }}>
                     <List direction={'row'} component={Stack}>
                         {LIST_KOLS}
                     </List>
@@ -119,7 +130,7 @@ const Project = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    marginTop: '5%'
+                    marginTop: '10vh'
                 }}>
                     <MobileStepper
                         variant="progress"
@@ -135,11 +146,12 @@ const Project = () => {
                             color: 'inherit',
                             sx: {
                                 height: '2px',
-                                width: '80%'
+                                width: '85%'
                             }
                         }}
                         nextButton={
                             <Button
+                                fontSize={'32px'}
                                 backgroundColor={'none'}
                                 hoverBackground={'#FFFFFF'}
                                 boder={'none'}
@@ -147,11 +159,12 @@ const Project = () => {
                                 borderRadius={'50%'}
                                 onClick={handleNext}
                                 disabled={activeStep === listKOLs.length - 1}
-                                Icon={<KeyboardArrowRight />}>
+                                Icon={<KeyboardArrowRight sx={{ fontSize: 32 }} />}>
                             </Button>
                         }
                         backButton={
                             <Button
+                                fontSize={'32px'}
                                 backgroundColor={'none'}
                                 hoverBackground={'#FFFFFF'}
                                 border={'none'}
@@ -159,7 +172,7 @@ const Project = () => {
                                 borderRadius={'50%'}
                                 onClick={handleBack}
                                 disabled={activeStep === 0}
-                                Icon={<KeyboardArrowLeft />}
+                                Icon={<KeyboardArrowLeft sx={{ fontSize: 32 }} />}
                             >
 
                             </Button>
@@ -171,4 +184,4 @@ const Project = () => {
     )
 }
 
-export default Project
+export default Kols

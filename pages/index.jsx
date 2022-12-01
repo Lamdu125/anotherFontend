@@ -2,13 +2,32 @@ import { ThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import Head from 'next/head'
 import Image from 'next/image'
-import Project from '../scenes/home/Project';
-import styles from '../styles/Home.module.css'
+import FormContact from '../scenes/home/FormContact';
+import Header from '../scenes/home/Header/Header';
+import Kols from '../scenes/home/Kols';
+import OurWork from '../scenes/home/OurWork/OurWork';
+import styles from '../styles/Home.module.css';
+import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIndex(window.scrollY / window.innerHeight);
+
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className='main'>
-      <Project />
+      <Header index={index} />
+      <Kols />
+      <FormContact />
+      <OurWork />
     </div>
   );
 }

@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Averta;
+  letter-spacing: 0.1em;
 }
 .main {
   background-color: #ededed;
@@ -15,3 +16,10 @@
   font-family: Averta;
   src: url("/fonts/Averta-Regular.otf");
 }
+@media screen and (max-width:800) {
+    .image img {
+        width: 100px;
+        height: 100px;
+    }
+}
+

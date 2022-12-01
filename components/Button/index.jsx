@@ -3,6 +3,10 @@ import { styled } from '@mui/material/styles';
 import { Button as MButton } from '@mui/material';
 
 const StyledButton = styled(MButton)((props) => ({
+    padding: "1% 5%",
+    letterSpacing: '0.1em',
+    textTransform: 'none',
+    fontFamily: props.bold ? "AvertaBold" : "Averta",
     width: props.width,
     height: props.height,
     minWidth: 0,
@@ -21,8 +25,10 @@ const StyledButton = styled(MButton)((props) => ({
 
 const Button = (props) => {
     return <StyledButton
-        backgroundColor={props.backgroundColor}
-        hoverBackground={props.hoverBackground}
+        type="submit"
+        bold={props.bold}
+        backgroundColor={props.backgroundColor || "#EDEDED"}
+        hoverBackground={props.hoverBackground || '#FFFFFF'}
         fontSize={props.fontSize}
         width={props.width}
         height={props.height}
@@ -30,11 +36,11 @@ const Button = (props) => {
         disabled={props.disabled}
         borderRadius={props.borderRadius}
         border={props.border}
-        textColor={props.textColor}
-        hoverTextColor={props.hoverTextColor}
+        textColor={props.textColor || '#7A7A7A'}
+        hoverTextColor={props.hoverTextColor || "#000000"}
     >
 
-        <p>{props.title}</p>
+        {props.title}
         {props.Icon}
 
     </StyledButton>

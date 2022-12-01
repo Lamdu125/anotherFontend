@@ -8,7 +8,7 @@ const Content = styled(Typography)((props) => ({
   lineHeight: props.lineHeight,
   letterSpacing: props.letterSpacing,
   fontSize: `${props.fontSize}`,
-  animation: `${textAnimate(props)} ${props.duration || "1s"} linear ${props.delay || "0s"}`,
+  animation: `${textAnimate(props)} ${props.duration || "1s"} ease ${props.delay || "0s"}`,
 }));
 
 const Text = (props) => {

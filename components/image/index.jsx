@@ -15,11 +15,11 @@ const StyledBox = styled(Box)((props) => ({
   cursor: "pointer",
   "&:hover": props.hoverEnabled
     ? {
-        borderRadius: "50%",
-        boxShadow: "0px 5px 30px rgba(81, 33, 98, 0.4)",
-      }
+      borderRadius: "50%",
+      boxShadow: "0px 5px 30px rgba(81, 33, 98, 0.4)",
+    }
     : undefined,
-  animation: `${textAnimate(props)} ${props.duration || "1s"} linear ${props.delay || "0s"}`,
+  animation: `${textAnimate(props)} ${props.duration || "1s"} ease ${props.delay || "0s"}`,
 }));
 
 const Image = (props) => {
